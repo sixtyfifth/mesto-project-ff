@@ -1,15 +1,3 @@
-/* 
-    const validationConfig = {
-        formSelector: '.popup__form',
-        inputSelector: '.popup__input',
-        submitButtonSelector: '.popup__button',
-        inactiveButtonClass: 'popup__button_disabled',
-        inputErrorClass: 'popup__input_type_error',
-        errorClass: 'popup__error_visible'
-    }
-*/
-
-// Добавление классов ошибок валидации
 function showInputError(
   formElement,
   inputElement,
@@ -23,7 +11,6 @@ function showInputError(
   errorElement.textContent = errorMessage;
 }
 
-// Удаление классов ошибок валидации
 function hideInputError(formElement, inputElement, validationConfig) {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
 
@@ -32,10 +19,7 @@ function hideInputError(formElement, inputElement, validationConfig) {
   errorElement.textContent = "";
 }
 
-// Проверка на валидность отдельного input
 function isValid(formElement, inputElement, validationConfig) {
-  // Добавление кастомного сообщения ошибки
-  // при использовании pattern
 
   if (inputElement.validity.patternMismatch) {
     inputElement.setCustomValidity(inputElement.dataset.errorMessage);
@@ -55,7 +39,6 @@ function isValid(formElement, inputElement, validationConfig) {
   }
 }
 
-// Добавление слушателя ввода на каждый input формы
 function setEventListeners(formElement, validationConfig) {
   const inputList = Array.from(
     formElement.querySelectorAll(validationConfig.inputSelector)
@@ -74,7 +57,6 @@ function setEventListeners(formElement, validationConfig) {
   });
 }
 
-// Добавление setEventListeners на каждую форму
 export function enableValidation(validationConfig) {
   const formList = Array.from(
     document.querySelectorAll(validationConfig.formSelector)
@@ -84,16 +66,12 @@ export function enableValidation(validationConfig) {
   });
 }
 
-// Проверка валидности каждого input в форме
-// для валидации всех полей
 function hasInvalidInput(inputList) {
   return inputList.some((item) => {
     return !item.validity.valid;
   });
 }
 
-// Добавление и удаление класса disabled для кнопки формы
-// при проверке валидации всех полей формы
 function toogleButtonState(inputList, buttonElement, validationConfig) {
   if (hasInvalidInput(inputList)) {
     buttonElement.disabled = true;
@@ -104,11 +82,6 @@ function toogleButtonState(inputList, buttonElement, validationConfig) {
   }
 }
 
-/**
- * Удаляет классы ошибок валидации при повторном открытии попапа с формой
- * (если были ошибки валидации и попап закрыли - при повторном открытии
- * нужно очистить ошибки валидации и очистить форму)
- */
 export function clearValidation(profileForm, validationConfig) {
   const buttonElement = profileForm.querySelector(
     validationConfig.submitButtonSelector
