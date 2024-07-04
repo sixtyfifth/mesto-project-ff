@@ -13,7 +13,7 @@ const initialCards = [
     },
     {
       name: "Озеро Лохнесс",
-      link: "https://themystical.ru/wp-content/uploads/2018/06/765434567345.jpg",
+      link: "https://vsegda-pomnim.com/uploads/posts/2022-03/1648759720_59-vsegda-pomnim-com-p-chudovishche-ozera-lokhness-foto-63.jpg",
     },
     {
       name: "Чернобль",
@@ -24,3 +24,4 @@ const initialCards = [
       link: "https://avatars.dzeninfra.ru/get-zen_doc/3362051/pub_61a7912c548e482352babb18_61a79191d6d4856dd76775fb/scale_1200",
     }
 ];
+export { initialCards };
