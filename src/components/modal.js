@@ -22,5 +22,4 @@ function handleEsc (evt) {
         closePopup (popupIsOpened);
     };
 };
-
 export { openPopup, closePopup };
