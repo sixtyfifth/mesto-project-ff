@@ -1,4 +1,6 @@
 # Проектная работа Mesto
-https://github.com/sixtyfifth/mesto-project-ff.git
-
-можно посмотреть проект на:  https://sixtyfifth.github.io/mesto-project-ff/
+------
+# students-yandex – sixtyfifth
+# mesto-project – mesto-project-ff
+------
+[Mesto выходит в свет](https://sixtyfifth.github.io/mesto-project-ff/)
