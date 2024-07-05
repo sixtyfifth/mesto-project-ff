@@ -24,4 +24,3 @@ const initialCards = [
       link: "https://avatars.dzeninfra.ru/get-zen_doc/3362051/pub_61a7912c548e482352babb18_61a79191d6d4856dd76775fb/scale_1200",
     }
 ];
-export { initialCards };
