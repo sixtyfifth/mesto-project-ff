@@ -5,7 +5,8 @@ export function createCard(
   userId,
   deleteCard,
   handleCardLike,
-  openPopupImage
+  openPopupImage,
+  deleteCardUser
 ) {
   const cardTemplate = document.querySelector("#card-template");
   const cardImage = cardTemplate.content.querySelector(".card__image");
@@ -43,25 +44,27 @@ export function createCard(
   return cardElement;
 }
 
-export const handleCardLike = async (evt, cardId) => {
-  const correctLikes = evt.target.parentNode.querySelector(".card__like-count");
-  if (evt.target.classList.contains("card__like-button_is-active")) {
-    unlikeCard(cardId)
-      .then((updateCard) => {
-        evt.target.classList.remove("card__like-button_is-active");
-        correctLikes.textContent = updateCard.likes.length;
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  } else {
-    likeCard(cardId)
-      .then((updateCard) => {
-        evt.target.classList.add("card__like-button_is-active");
-        correctLikes.textContent = updateCard.likes.length;
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }
+export const handleCardLike = async (evt, cardId) => { 
+  const cardElement = evt.target.closest(".card"); 
+  const correctLikes = cardElement.querySelector(".card__like-count"); 
+
+  if (evt.target.classList.contains("card__like-button_is-active")) { 
+    unlikeCard(cardId) 
+      .then((updateCard) => { 
+        evt.target.classList.remove("card__like-button_is-active"); 
+        correctLikes.textContent = updateCard.likes.length; 
+      }) 
+      .catch((err) => { 
+        console.log(err); 
+      }); 
+  } else { 
+    likeCard(cardId) 
+      .then((updateCard) => { 
+        evt.target.classList.add("card__like-button_is-active"); 
+        correctLikes.textContent = updateCard.likes.length; 
+      }) 
+      .catch((err) => { 
+        console.log(err); 
+      }); 
+  } 
 };

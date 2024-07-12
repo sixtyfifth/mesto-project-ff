@@ -214,14 +214,18 @@ popupImage
   .querySelector(".popup__close")
   .addEventListener("click", closePopupImage);
 
-const deleteCard = (evt, cardId) => {
-  deleteCardUser(cardId);
-  const button = evt.target;
-  const card = button.closest(".card");
-  if (card) {
-    card.remove();
-  }
-};
+  const deleteCard = async (evt, cardId) => {
+    try {
+    await deleteCardUser(cardId);
+    const button = evt.target;
+    const card = button.closest(".card");
+      if (card) {
+        card.remove();
+      }
+    } catch (error) {
+    console.error(error);
+    }
+    };
 
 const getFullInfoProfile = (userInfo) => {
   profileTitle.textContent = userInfo.name;
