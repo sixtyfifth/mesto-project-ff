@@ -5,8 +5,7 @@ export function createCard(
   userId,
   deleteCard,
   handleCardLike,
-  openPopupImage,
-  deleteCardUser
+  openPopupImage
 ) {
   const cardTemplate = document.querySelector("#card-template");
   const cardImage = cardTemplate.content.querySelector(".card__image");
